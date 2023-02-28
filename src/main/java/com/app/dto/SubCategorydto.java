@@ -15,9 +15,23 @@ public class SubCategorydto {
 	
 	private String subcategoryName;
 	private String Category;
-	public Object getSubcategoryName() {
+	public String getSubcategoryName() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.subcategoryName;
+	}
+	public String getCategory() {
+		return Category;
+	}
+	public void setCategory(String category) {
+		Category = category;
+	}
+	public void setSubcategoryName(String subcategoryName) {
+		this.subcategoryName = subcategoryName;
+	}
+	public SubCategorydto(String subcategoryName, String category) {
+		super();
+		this.subcategoryName = subcategoryName;
+		Category = category;
 	}
 
 }
