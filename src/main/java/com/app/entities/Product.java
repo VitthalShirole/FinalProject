@@ -56,13 +56,9 @@ public class Product extends BaseEntity{
 	}
 
 
-
-
 	public String getProductname() {
 		return productname;
 	}
-
-
 
 
 	public void setProductname(String productname) {
@@ -70,20 +66,14 @@ public class Product extends BaseEntity{
 	}
 
 
-
-
 	public byte[] getImage() {
 		return image;
 	}
 
 
-
-
 	public void setImageurl(byte[] bs) {
 		this.image = bs;
 	}
-
-
 
 
 	public double getPrice() {

@@ -21,11 +21,6 @@ public class Category extends BaseEntity {
 	
 	
 
-	public Category(String categoryName, List<SubCategory> subCatList) {
-		super();
-		this.categoryName = categoryName;
-		this.subCatList = subCatList;
-	}
 
 	private String categoryName;
 	
@@ -36,6 +31,11 @@ public class Category extends BaseEntity {
 		super();
 	}
 
+	public Category(String categoryName, List<SubCategory> subCatList) {
+		super();
+		this.categoryName = categoryName;
+		this.subCatList = subCatList;
+	}
 	
 		
 	
