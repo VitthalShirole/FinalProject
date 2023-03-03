@@ -18,16 +18,19 @@ import lombok.ToString;
 @ToString
 @Getter
 @Setter
-public class Product extends BaseEntity{
+public class Product {
 	
 	////category_id, image_url, price, product_name, sub_category_id, weight
+	@Id
+	private Long id;
 	private String productname;
 	@Lob //=> col type : longblob for Mysql
 	private byte[] image;
 	private double price;
 	
 	private double weight;
-
+    
+	private String path;
 
 //	@ManyToOne
 //	@JoinColumn(name = "user_Id")
@@ -44,16 +47,62 @@ public class Product extends BaseEntity{
 
 	
 	
-	public Product(String productname, byte[] imageurl, double price, double weight, SubCategory subCategory,
-			Category category) {
+
+	public Product(Long id, String productname, byte[] image, double price, double weight, String path,
+			SubCategory subCategory, Category category) {
 		super();
+		this.id = id;
 		this.productname = productname;
-		this.image = imageurl;
+		this.image = image;
 		this.price = price;
 		this.weight = weight;
+		this.path = path;
 		this.subCategory = subCategory;
 		this.category = category;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 	public String getProductname() {
@@ -61,9 +110,31 @@ public class Product extends BaseEntity{
 	}
 
 
+
+
+
+
+
+
+
+
+
+
+
 	public void setProductname(String productname) {
 		this.productname = productname;
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 	public byte[] getImage() {
@@ -71,14 +142,45 @@ public class Product extends BaseEntity{
 	}
 
 
-	public void setImageurl(byte[] bs) {
-		this.image = bs;
+
+
+
+
+
+
+
+
+
+
+
+	public void setImage(byte[] image) {
+		this.image = image;
 	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 	public double getPrice() {
 		return price;
 	}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,9 +192,27 @@ public class Product extends BaseEntity{
 
 
 
+
+
+
+
+
+
+
+
+
 	public double getWeight() {
 		return weight;
 	}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -104,9 +224,59 @@ public class Product extends BaseEntity{
 
 
 
+
+
+
+
+
+
+
+
+
+	public String getPath() {
+		return path;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setPath(String path) {
+		this.path = path;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public SubCategory getSubCategory() {
 		return subCategory;
 	}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -118,6 +288,15 @@ public class Product extends BaseEntity{
 
 
 
+
+
+
+
+
+
+
+
+
 	public Category getCategory() {
 		return category;
 	}
@@ -125,9 +304,27 @@ public class Product extends BaseEntity{
 
 
 
+
+
+
+
+
+
+
+
+
 	public void setCategory(Category category) {
 		this.category = category;
 	}
+
+
+
+
+
+
+
+
+
 
 
 
