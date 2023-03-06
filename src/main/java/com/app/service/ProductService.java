@@ -29,6 +29,8 @@ public interface ProductService {
 
 	byte[] restoreImage(Long patId) throws IOException;
 	
+	public Product fetchProductById(Long prod_id);
+	
 //	byte[] restoreImage(Long patId) throws IOException;
 	
 

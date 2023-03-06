@@ -97,11 +97,11 @@ public class ProductController {
 //		}
 //	}
 //	
-	@PostMapping(value = "{userId}/image", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
-	public ResponseEntity<?> uploadImage(@PathVariable Long userId, @RequestBody MultipartFile imgFile)
+	@PostMapping(value = "{productId}/image", consumes = { MediaType.MULTIPART_FORM_DATA_VALUE })
+	public ResponseEntity<?> uploadImage(@PathVariable Long productId, @RequestBody MultipartFile imgFile)
 			throws IOException {
 		try {
-			return ResponseEntity.ok(productService.saveImage(userId, imgFile));
+			return ResponseEntity.ok(productService.saveImage(productId, imgFile));
 		} catch (RuntimeException e) {
 			return new ResponseEntity<>(new ApiResponse(), HttpStatus.NOT_FOUND);
 		}

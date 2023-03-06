@@ -9,8 +9,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 @Getter
 @Setter
@@ -18,7 +16,7 @@ import lombok.ToString;
 public class SubCategory extends BaseEntity {
 
 	private String subcategoryName;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private Category category;
 	public String getSubcategoryName() {
 		return subcategoryName;

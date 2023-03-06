@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
-import org.apache.commons.io.FileUtils;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.modelmapper.ModelMapper;
@@ -18,7 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
-
+//import org.apache.commons.io.FileUtils;
 import com.app.custom_exceptions.ResourceNotFoundException;
 
 import com.app.dao.CategoryRepository;
@@ -64,6 +64,10 @@ public class ProductServiceImpl implements ProductService {
 		return prodRepo.findAll();
 	}
 
+	
+	public Product fetchProductById(Long prod_id) {
+		return prodRepo.findById(prod_id).orElseThrow(() -> new ResourceNotFoundException("Invalid User Id"));
+	}
 
 	@Override
 	public SubCategory fetchSubCatrgoryDetails(Long subCategory_id) {
@@ -103,13 +107,7 @@ public class ProductServiceImpl implements ProductService {
 		return prodlist;
 	}
 	
-//	@Override
-//	public List<Product> fetcProductDetailsByCategoryAndSubCategoryId(Category cat, SubCategory subCat) {
-//		
-//		return prodRepo.findByCategoryAndSubCategory(cat, subCat) ;
-//	}
-	
-	///category_id, image_url, price, product_name, sub_category_id, weight
+
 	@Override
 	public ProductRespDto addProduct(ProductDto productDto) {
 		
@@ -126,15 +124,15 @@ public class ProductServiceImpl implements ProductService {
 	
 		String	imageFilePaths = productDto.getImageurl();
 		File file = new File(imageFilePaths);
-		if (file.isFile() && file.canRead()) {
-			// => valid file
-			try {
-				product.setImage(FileUtils.readFileToByteArray(file));
-			} catch (IOException e) {
-			
-				e.printStackTrace();
-			}
-		}
+//		if (file.isFile() && file.canRead()) {
+//			// => valid file
+//			try {
+//				product.setImage(FileUtils.readFileToByteArray(file));
+//			} catch (IOException e) {
+//			
+//				e.printStackTrace();
+//			}
+//		}
 		product.setId(productDto.getId());
 		product.setPrice(productDto.getPrice());
 		product.setWeight(productDto.getWeight());
