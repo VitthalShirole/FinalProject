@@ -38,6 +38,66 @@ private Authentication athentication;
 //@JoinColumn(name="order")
 private Ordar order;
 
+public String getCustomerName() {
+	return customerName;
+}
+
+public void setCustomerName(String customerName) {
+	this.customerName = customerName;
+}
+
+public int getCotactNo() {
+	return cotactNo;
+}
+
+public void setCotactNo(int cotactNo) {
+	this.cotactNo = cotactNo;
+}
+
+public Address getAddress() {
+	return address;
+}
+
+public void setAddress(Address address) {
+	this.address = address;
+}
+
+public Authentication getAthentication() {
+	return athentication;
+}
+
+public void setAthentication(Authentication athentication) {
+	this.athentication = athentication;
+}
+
+public Ordar getOrder() {
+	return order;
+}
+
+public void setOrder(Ordar order) {
+	this.order = order;
+}
+
+public Customer(Long id, String customerName, int cotactNo, Address address, Authentication athentication,
+		Ordar order) {
+	super(id);
+	this.customerName = customerName;
+	this.cotactNo = cotactNo;
+	this.address = address;
+	this.athentication = athentication;
+	this.order = order;
+}
+
+public Customer() {
+	super();
+	// TODO Auto-generated constructor stub
+}
+
+public Customer(Long id) {
+	super(id);
+	// TODO Auto-generated constructor stub
+}
+
 
 
 	
