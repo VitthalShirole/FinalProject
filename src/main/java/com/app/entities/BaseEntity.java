@@ -11,8 +11,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
 @ToString
 
 @MappedSuperclass
